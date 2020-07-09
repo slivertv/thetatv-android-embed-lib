@@ -1,0 +1,3 @@
+include ':theta-embed-sdk'
+include ':app'
+rootProject.name = "EmbedSDKExample"
