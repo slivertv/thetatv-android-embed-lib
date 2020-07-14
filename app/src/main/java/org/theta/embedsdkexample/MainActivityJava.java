@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import org.theta.embedsdk.ui.EmbedFragment;
+import org.theta.embedsdk.ui.ThetaEmbedFragment;
 
 public class MainActivityJava extends AppCompatActivity {
 
@@ -21,11 +21,9 @@ public class MainActivityJava extends AppCompatActivity {
     private void initThetaEmbedSDKFragment() {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        EmbedFragment embedFragment = EmbedFragment.Companion.newInstance(
-                "YOUR_PARTNER_ID", //mandatory
-                "YOUR_PARTNER_SECRET", //mandatory
-                "CURRENT_USER_ID", //mandatory
-                "CURRENT_USERNAME" //optionnal
+        ThetaEmbedFragment embedFragment = ThetaEmbedFragment.Companion.newInstance(
+                "USER_ID", //mandatory
+                "USER_TOKEN" //mandatory
         );
         fragmentTransaction.add(R.id.rootContainer, embedFragment);
         fragmentTransaction.commit();

@@ -2,7 +2,7 @@ package org.theta.embedsdkexample
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import org.theta.embedsdk.ui.EmbedFragment
+import org.theta.embedsdk.ui.ThetaEmbedFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,11 +15,9 @@ class MainActivity : AppCompatActivity() {
     private fun initThetaEmbedSDKFragment() {
         val fragmentManager = supportFragmentManager
         val transaction = fragmentManager.beginTransaction()
-        EmbedFragment.newInstance(
-            partnerId = "YOUR_PARTNER_ID", //mandatory
-            partnerSecret = "YOUR_PARTNER_SECRET", //mandatory
-            currentUserId = "CURRENT_USER_ID", //mandatory
-            currentUsername = "CURRENT_USERNAME" //optionnal
+        ThetaEmbedFragment.newInstance(
+            userId = "USER_ID", //mandatory
+            userToken = "USER_TOKEN" //mandatory
         ).let { fragment ->
             transaction.add(R.id.rootContainer, fragment)
             transaction.commit()
