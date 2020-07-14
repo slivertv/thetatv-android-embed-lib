@@ -12,30 +12,47 @@ Import the theta-embed-sdk.aar file into your project
 
 Add the imported library to your app project gradle file
 
-Add the following libraries to your gradle file :
+Add the following library to your gradle file :
 
 ```
-implementation 'com.squareup.okhttp3:okhttp:4.7.2'
-implementation 'com.google.code.gson:gson:2.8.6'
-implementation 'com.squareup.retrofit2:retrofit:2.6.2'
-implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
-implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
-implementation 'io.reactivex.rxjava2:rxjava:2.2.9'
-implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 ```
+
+## Getting an OAuth Token for your user
+
+To be able to use the Embed SDK, you need to authenticate your users with the Theta.tv auth system.
+The following backend request will give you a user id and a user token that needs to be passed to the Android Embed SDK.
+You'll need a Client Id and a Client Secret to do this authentication. 
+Warning: the Client Secret should never be accessible client side, you'll have to do the request using your own backend.
+
+```
+POST Authenticate user
+https://api.theta.tv/v1/oauth2
+
+Query Params:
+client_id - required
+client_secret - required
+
+Payload:
+sns_id - required - unique identifier for your user
+auth_type = "app"
+username - required
+```
+
+This request will return a User object, you'll only need to get 2 attributes from it : id and access_token, respectively used as userId and userToken in the Embed SDK.
+
 
 ## Using the library
+
+
 
 The Theta.tv embed is wrapped into a Fragment, here is how to create it:
 
 ```
 EmbedFragment.newInstance(
-    partnerId = "YOUR_PARTNER_ID", //mandatory
-    partnerSecret = "YOUR_PARTNER_SECRET", //mandatory
-    currentUserId = "CURRENT_USER_ID", //mandatory
-    currentUsername = "CURRENT_USERNAME" //optionnal
+    userId = "USER_ID", //mandatory
+    userToken = "USER_TOKEN", //mandatory
 )
 ```
 
-* partnerId and partnerSecret are unique to your application and provided by Theta Labs
-* currentUserId and currentUsername are the identifients of the user logged into your app
+userId and userToken are respectively the attributes id and access_token you've gotten from the auth query.
