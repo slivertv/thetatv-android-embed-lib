@@ -16,8 +16,9 @@ class MainActivity : AppCompatActivity() {
         val fragmentManager = supportFragmentManager
         val transaction = fragmentManager.beginTransaction()
         ThetaEmbedFragment.newInstance(
-            userId = "USER_ID", //mandatory
-            userToken = "USER_TOKEN" //mandatory
+            "USER_ID", //mandatory
+            "USER_TOKEN", //mandatory
+            "PARTNER_ID" //mandatory
         ).let { fragment ->
             transaction.add(R.id.rootContainer, fragment)
             transaction.commit()

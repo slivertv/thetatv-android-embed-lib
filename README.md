@@ -50,9 +50,10 @@ The Theta.tv embed is wrapped into a Fragment, here is how to create it:
 
 ```
 EmbedFragment.newInstance(
-    userId = "USER_ID", //mandatory
-    userToken = "USER_TOKEN", //mandatory
+    "USER_ID", //mandatory
+    "USER_TOKEN", //mandatory
+    "PARTNER_ID" //mandatory
 )
 ```
 
-userId and userToken are respectively the attributes id and access_token you've gotten from the auth query.
+userId and userToken are respectively the attributes id and access_token you've gotten from the auth query. partnerId is your client_id

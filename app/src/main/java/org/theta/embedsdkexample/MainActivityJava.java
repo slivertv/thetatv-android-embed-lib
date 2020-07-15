@@ -21,11 +21,13 @@ public class MainActivityJava extends AppCompatActivity {
     private void initThetaEmbedSDKFragment() {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        ThetaEmbedFragment embedFragment = ThetaEmbedFragment.Companion.newInstance(
+        ThetaEmbedFragment embedFragment = ThetaEmbedFragment.newInstance(
                 "USER_ID", //mandatory
-                "USER_TOKEN" //mandatory
+                "USER_TOKEN", //mandatory
+                "PARTNER_ID" //mandatory
         );
         fragmentTransaction.add(R.id.rootContainer, embedFragment);
         fragmentTransaction.commit();
     }
+
 }
