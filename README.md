@@ -1,4 +1,4 @@
-# Theta.tv Android Embed Library 
+# THETA.tv Android Embed Library 
 
 
 ## Prerequisites
