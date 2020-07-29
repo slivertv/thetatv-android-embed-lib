@@ -53,7 +53,19 @@ EmbedFragment.newInstance(
     "USER_ID", //mandatory
     "USER_TOKEN", //mandatory
     "PARTNER_ID" //mandatory
+    "PATH" //optional
 )
 ```
 
 userId and userToken are respectively the attributes id and access_token you've gotten from the auth query. partnerId is your client_id
+
+
+You can specify a path when creating the fragment to access a specific channel, using the channel alias. For example "nasa". 
+You can also directly display the list of games by using the following path: "game/list"
+
+Once the fragment and its view are created, you can also call the following methods :
+
+```
+fragment.showChannel("YOUR_CHANNEL_ALIAS")
+fragment.showGames()
+```

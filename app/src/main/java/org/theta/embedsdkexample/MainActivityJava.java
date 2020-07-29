@@ -28,7 +28,8 @@ public class MainActivityJava extends AppCompatActivity {
                 "USER_ID", //mandatory
                 "USER_TOKEN", //mandatory
                 "PARTNER_ID", //mandatory
-                null //options for future release
+                null, //options for future release
+                "PATH" //optional
         );
         fragmentTransaction.add(R.id.rootContainer, embedFragment);
         fragmentTransaction.commit();
