@@ -53,7 +53,8 @@ EmbedFragment.newInstance(
     "USER_ID", //mandatory
     "USER_TOKEN", //mandatory
     "PARTNER_ID" //mandatory
-    "PATH" //optional
+    "PATH", //optional
+    "OPTIONS" // optional
 )
 ```
 
@@ -68,4 +69,16 @@ Once the fragment and its view are created, you can also call the following meth
 ```
 fragment.showChannel("YOUR_CHANNEL_ALIAS")
 fragment.showGames()
+```
+
+
+## Options
+
+
+You can add options when creating the EmbedFragment by passing a List of EmbedOption to its constructor.
+
+Options currently available :
+
+```
+EmbedOption("nochat", "true") //Remove chat from the channel screen
 ```
