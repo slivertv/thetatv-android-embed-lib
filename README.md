@@ -27,7 +27,7 @@ Warning: the Client Secret should never be accessible client side, you'll have t
 
 ```
 POST Authenticate user
-https://api.theta.tv/v1/oauth2
+https://api.theta.tv/v1/user/oauth2
 
 Query Params:
 client_id - required
